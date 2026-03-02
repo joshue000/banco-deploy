@@ -1,0 +1,28 @@
+services:
+  banco-back:
+    build:
+      context: ./banco-back
+      dockerfile: Dockerfile
+    container_name: banco-backend
+    ports:
+      - "3002:3002"
+    restart: unless-stopped
+    networks:
+      - banco-network
+
+  banco-front:
+    build:
+      context: ./banco-front
+      dockerfile: Dockerfile
+    container_name: banco-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - banco-back
+    restart: unless-stopped
+    networks:
+      - banco-network
+
+networks:
+  banco-network:
+    driver: bridge

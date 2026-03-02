@@ -1,0 +1,6 @@
+[submodule "banco-back"]
+	path = banco-back
+	url = https://github.com/joshue000/banco-back
+[submodule "banco-front"]
+	path = banco-front
+	url = https://github.com/joshue000/banco-front
